@@ -1,92 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光与影</title>
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-        }
-
-        #home {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        .carousel {
-            width: 100%;
-            height: 100%;
-        }
-
-        .carousel button {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            top: 50%;
-            z-index: 999;
-        }
-
-        .carousel .left-btn {
-            left: 0;
-        }
-
-        .carousel .right-btn {
-            right: 0;
-        }
-
-        .silder {
-            width: 100%;
-            height: 100%;
-        }
-
-        .silder img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: -100%;
-            object-fit: cover;
-            transition: all 1s ease;
-            z-index: 99;
-        }
-    </style>
+    <title>光与影 Light&Shadow</title>
+    <link rel="icon" type="image/png" href="./images/logo.png" />
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
 </head>
 
 <body>
     <div id="home">
+        <div>
+            <img class="logo" src="./images/logo.png" alt="">
+            <h1 class="title">光与影</h1>
+        </div>
+        <button class="enter">进入官网</button>
         <div class="carousel">
-            <button class="left-btn"></button>
+            <button class="left-btn">&lt;</button>
             <div class="silder">
-                <img src="./images/DSC_0878.jpg" alt="" style="left:0%">
-                <img src="./images/DSC09624.jpg" alt="" style="left:100%">
-                <img src="./images/DSC09820-编辑.jpg" alt="" style="left:200%">
+                <img src="./images/DSC09624.jpg" alt="" style="left:-100%">
+                <img src="./images/DSC02357-编辑.jpg" alt="" style="left:0%">
+                <img src="./images/DSC09820-编辑.jpg" alt="" style="left:100%">
             </div>
-            <button class="right-btn"></button>
+            <button class="right-btn">&gt;</button>
+        </div>
+        <div class="content-one">
+            <div class="content-1">
+                <div class="content-1-text">
+                    <h1>风景</h1>
+                    <p>在光影交织中，探寻工业与自然和谐共生的诗意瞬间。</p>
+                    <button>立即查看</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-two">
+            <div class="content-2">
+                <div class="content-2-text">
+                    <h1>自然</h1>
+                    <p>捕捉自然之美，用简洁的画面讲述生命的故事。</p>
+                    <button>立即查看</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-three">
+            <div class="content-3">
+                <div class="content-3-text">
+                    <h1>几何</h1>
+                    <p>几何的纯粹与和谐，捕捉建筑细节中的韵律与秩序。</p>
+                    <button>立即查看</button>
+                </div>
+            </div>
         </div>
     </div>
-    <script>
-        const rightBtn = document.querySelector('.right-btn');
-        const images = document.querySelectorAll('.silder img')
-        function switchImg(images) {
-            images.forEach(function (img) {
-                img.style.left = parseFloat(img.style.left) - 100 + '%';
-                if (img.style.left === '-200%') {
-                    img.style.left = 100 + '%'
-                }
-            });
-        }
-
-        rightBtn.addEventListener('click', function () {
-            switchImg(images);
-        });
-    </script>
 </body>
 
 </html>

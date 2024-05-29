@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光与影</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #home {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel button {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            z-index: 999;
+        }
+
+        .carousel .left-btn {
+            left: 0;
+        }
+
+        .carousel .right-btn {
+            right: 0;
+        }
+
+        .silder {
+            width: 100%;
+            height: 100%;
+        }
+
+        .silder img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -100%;
+            object-fit: cover;
+            transition: all 1s ease;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="home">
+        <div class="carousel">
+            <button class="left-btn"></button>
+            <div class="silder">
+                <img src="./images/DSC_0878.jpg" alt="" style="left:0">
+                <img src="./images/DSC09624.jpg" alt="" style="left:100%">
+                <img src="./images/DSC09820-编辑.jpg" alt="" style="left:200%">
+            </div>
+            <button class="right-btn"></button>
+        </div>
+    </div>
+    <script>
+        const rightBtn = document.querySelector('.right-btn');
+        const images = document.querySelectorAll('.silder img');
+
+        function switchImg(images) {
+            images.forEach(function (img) {
+                img.style.left = parseFloat(img.style.left) - 100 + '%';
+                setTimeout(() => {
+                    img.style.zIndex = '99'
+                }, 1000)
+                if (img.style.left === '-200%') {
+                    img.style.left = 100 + '%'
+                    img.style.zIndex = '0'
+                }
+            });
+        }
+        rightBtn.addEventListener('click', switchImg(images));
+    </script>
+</body>
+
+</html>

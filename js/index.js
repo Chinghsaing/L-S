@@ -27,28 +27,22 @@ function switchImg(direction) {
         }
     });
 }
-
-rightBtn.addEventListener('click', function () {
+function btnEvent(direction) {
     const currentTime = Date.now();
     if (currentTime - lastClickTime >= 1500) {
-        switchImg(1);
+        switchImg(direction);
         lastClickTime = currentTime;
         const imagesArray = Array.from(images);
         const currentImage = imagesArray.find(img => img.style.left === '0%');
         document.querySelector('#home').style.backgroundImage = `url(${currentImage.src})`;
     }
+}
+rightBtn.addEventListener('click', function(){
+    btnEvent(1)
 });
-leftBtn.addEventListener('click', function () {
-    const currentTime = Date.now();
-    if (currentTime - lastClickTime >= 1500) {
-        switchImg(-1);
-        lastClickTime = currentTime;
-        const imagesArray = Array.from(images);
-        const currentImage = imagesArray.find(img => img.style.left === '0%');
-        document.querySelector('#home').style.backgroundImage = `url(${currentImage.src})`;
-    }
+leftBtn.addEventListener('click',function(){
+    btnEvent(-1)
 });
-
 
 function scrollToSection(index, duration) {
     const start = home.scrollTop;
@@ -76,7 +70,6 @@ function easeInOut(t) {
 
 function handleScroll(event) {
     event.preventDefault();
-
     const currentTime = Date.now();
     const delta = event.deltaY;
     console.log(delta, currentSection);
@@ -84,7 +77,7 @@ function handleScroll(event) {
         // 如果距离上次滚动不足5秒，则不执行滚动操作
         return;
     }
-    if (delta > 0 && currentSection < 3) {
+    if (delta > 0 && currentSection < 5) {
         scrollToSection(currentSection + 1, 1000); // 设置持续时间为1秒
         currentSection++;
         lastScrollTime = currentTime; // 更新上次滚动时间

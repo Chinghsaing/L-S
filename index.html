@@ -64,7 +64,7 @@
         <div class="carousel">
             <button class="left-btn"></button>
             <div class="silder">
-                <img src="./images/DSC_0878.jpg" alt="" style="left:0">
+                <img src="./images/DSC_0878.jpg" alt="" style="left:0%">
                 <img src="./images/DSC09624.jpg" alt="" style="left:100%">
                 <img src="./images/DSC09820-编辑.jpg" alt="" style="left:200%">
             </div>
@@ -73,21 +73,19 @@
     </div>
     <script>
         const rightBtn = document.querySelector('.right-btn');
-        const images = document.querySelectorAll('.silder img');
-
+        const images = document.querySelectorAll('.silder img')
         function switchImg(images) {
             images.forEach(function (img) {
                 img.style.left = parseFloat(img.style.left) - 100 + '%';
-                setTimeout(() => {
-                    img.style.zIndex = '99'
-                }, 1000)
                 if (img.style.left === '-200%') {
                     img.style.left = 100 + '%'
-                    img.style.zIndex = '0'
                 }
             });
         }
-        rightBtn.addEventListener('click', switchImg(images));
+
+        rightBtn.addEventListener('click', function () {
+            switchImg(images);
+        });
     </script>
 </body>
 

@@ -1,0 +1,192 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#home {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: url("../images/DSC02357-编辑.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#home .title {
+    font-size: 64px;
+    position: absolute;
+    z-index: 999;
+    color: rgb(245, 245, 245);
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#home .logo {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 35%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+}
+
+#home .enter {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, 25%);
+    border-radius: 50px;
+    background-color: rgba(58, 58, 58, 0.5);
+    color: rgb(245, 245, 245);
+    border: none;
+    font-weight: bold;
+    transition: all 1s ease;
+    font-size: 20px;
+}
+
+#home .enter:hover {
+    border: solid black 1px;
+    background-color: rgba(58, 58, 58, 0.5);
+}
+
+.carousel,
+.content {
+    height: 100%;
+}
+
+.carousel button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    z-index: 999;
+    border: none;
+    background: transparent;
+    transition: .5s all;
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(245, 245, 245);
+}
+
+.carousel button:hover {
+    transform: scale(1.6);
+}
+
+.carousel .left-btn {
+    left: 30px;
+}
+
+.carousel .right-btn {
+    right: 30px;
+}
+
+.silder {
+    width: 100%;
+    height: 100%;
+}
+
+.silder img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    object-fit: cover;
+    transition: all 1s ease;
+    z-index: 99;
+}
+
+.content-one,
+.content-two,
+.content-three {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(25px);
+    position: relative;
+}
+
+.content-one .content-1 {
+    width: 100%;
+    height: 580px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    background: url('../images/DSC02784-1.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.content-one .content-1 h1,
+.content-two .content-2 h1,
+.content-three .content-3 h1 {
+    font-size: 64px;
+    margin: 30px 0;
+}
+
+.content-two .content-2 h1 {
+    color: #ffffff;
+}
+
+.content-two .content-2 p {
+    color: #ffffff;
+}
+
+.content-one .content-1 p,
+.content-two .content-2 p,
+.content-three .content-3 p {
+    font-size: 24px;
+}
+
+.content-one .content-1 button,
+.content-two .content-2 button,
+.content-three .content-3 button {
+    background-color: #0071e3;
+    width: 120px;
+    height: 44px;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 980px;
+    border: none;
+}
+
+.content-1-text,
+.content-2-text,
+.content-3-text {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+}
+
+.content-two .content-2 {
+    width: 100%;
+    height: 580px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    background: url('../images/DSC04528.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.content-three .content-3 {
+    width: 100%;
+    height: 580px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    background: url('../images/DSC_0860.jpg') no-repeat center;
+    background-size: cover;
+}

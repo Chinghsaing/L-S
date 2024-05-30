@@ -1,6 +1,7 @@
 
 const rightBtn = document.querySelector('.right-btn');
 const leftBtn = document.querySelector('.left-btn');
+const carousel = document.querySelector('.carousel');
 const images = document.querySelectorAll('.silder img')
 const home = document.getElementById('home');
 const delayTime = 1000;
@@ -12,21 +13,24 @@ let scrollEnabled = true;
 function switchImg(direction) {
     images.forEach(function (img) {
         img.style.left = parseFloat(img.style.left) - direction * 100 + '%';
-        if (img.style.left === '-200%') {
-            img.style.zIndex = '0'
-            img.style.left = '100%';
-            setTimeout(function () {
-                img.style.zIndex = '99'
-            }, 1000)
-        } else if (img.style.left === '200%') {
-            img.style.zIndex = '0'
-            img.style.left = '-100%';
-            setTimeout(function () {
-                img.style.zIndex = '99'
-            }, 1000)
-        }
+
+            if (img.style.left === '-200%') {
+                img.style.zIndex = '0'
+                img.style.left = '100%';
+                setTimeout(function () {
+                    img.style.zIndex = '99'
+                }, 1000)
+            } else if (img.style.left === '200%') {
+                img.style.zIndex = '0'
+                img.style.left = '-100%';
+                setTimeout(function () {
+                    img.style.zIndex = '99'
+                }, 1000)
+            }   
     });
 }
+
+
 function btnEvent(direction) {
     const currentTime = Date.now();
     if (currentTime - lastClickTime >= 1500) {
@@ -37,10 +41,10 @@ function btnEvent(direction) {
         document.querySelector('#home').style.backgroundImage = `url(${currentImage.src})`;
     }
 }
-rightBtn.addEventListener('click', function(){
+rightBtn.addEventListener('click', function () {
     btnEvent(1)
 });
-leftBtn.addEventListener('click',function(){
+leftBtn.addEventListener('click', function () {
     btnEvent(-1)
 });
 
@@ -72,7 +76,6 @@ function handleScroll(event) {
     event.preventDefault();
     const currentTime = Date.now();
     const delta = event.deltaY;
-    console.log(delta, currentSection);
     if (currentTime - lastScrollTime < delayTime) {
         // 如果距离上次滚动不足5秒，则不执行滚动操作
         return;
@@ -99,5 +102,36 @@ function disableScroll() {
 function enableScroll() {
     scrollEnabled = true;
 }
+function isCarouselInViewport(carousel) {
+    const rect = carousel.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    return (
+        rect.top >= 0 &&
+        rect.bottom <= windowHeight
+    );
+}
+// 监听窗口的滚动事件
+window.addEventListener('wheel', function () {
+    if (isCarouselInViewport(carousel)) {
+        // 如果carousel在可视范围内，启动定时器
+        if (!timer) {
+            timer = setInterval(function () {
+                btnEvent(1);
+            }, 5000);
+        }
+    } else {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+});
 
 window.addEventListener('wheel', handleScroll, { passive: false });
+
+document.addEventListener('DOMContentLoaded', function () {
+    timer = setInterval(function () {
+        btnEvent(1);
+    }, 5000);
+});

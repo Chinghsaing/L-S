@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    /*清除内外边距*/
+    padding: 0;
+    box-sizing: border-box;
+    /*padding和border不会撑大盒子，前提是二者大小都不超过width*/
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+/*em、i不倾斜*/
+
+li {
+    list-style: none;
+}
+
+/*去除li圆点*/
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+/*取消图片地侧空白缝隙*/
+
+button {
+    cursor: pointer;
+}
+
+/*经过button按钮鼠标变小手*/
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*取消链接下划线*/
+
+body {
+    -webkit-font-smoothing: antialiased;
+    /*css3 抗锯齿，文字更清晰*/
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+
+.clearfiz::after {
+    visibility: hidden;
+    /*清除浮动*/
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0;
+}
+
+/* css初始化 */
+
+
+/* header */
+header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+
+}
+
+nav {
+    width: 30%;
+}
+
+#logo a img {
+    width: 40px;
+    height: 40px;
+}
+
+nav ul,
+#right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a,
+#right a {
+    display: block;
+    width: 5em;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#right a {
+    width: 3em;
+}
+
+#right a {
+    font-weight: 900;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+}
+
+/* header */
+.content {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.content img {
+    max-width: 800px;
+    max-height: 700px;
+    object-fit: cover;
+}
+.image-itd{
+    position: relative;
+}
+.image-itd .iamge-watermark{
+    position: absolute;
+    top: 25%;
+    padding: 20px;
+    font-size: 28px;
+    left:50%;
+    transform: translateX(-50%) rotateZ(-30deg);
+    z-index: 999;
+    letter-spacing:5px;
+}
+.image-itd .iamge-watermark img{
+    width: 32px;
+    height: 32px;
+    opacity: 0.4;
+}
+.image-itd .iamge-watermark span{
+   display: block;
+   color: rgba(255, 255, 255,.4);
+}
+.image-itd h1{
+    color: #818181;
+    font-size: 16px;
+    text-align: center;
+}
+.image-itd p{
+    color: #9b9b9b;
+    font-size: 14px;
+}
+.image-info {
+    max-width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0 20px 20px 20px;
+}
+
+.image-info h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.image-info ul {
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column
+}
+
+.image-info li {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #666;
+    width: 300px;
+}
+
+.image-info li p {
+    display: inline-block;
+    width: 100px;
+    margin-right: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    border: 1px solid #bdc3c7;
+    margin-left: 20px;
+}
+
+form label {
+    display: flex;
+    height: 52px;
+    border-bottom: 1px solid #bdc3c7;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+.content-detail{
+    padding: 0 20px;
+}
+.custom-radio {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .custom-radio input[type="radio"] {
+    display: none; /* 隐藏原始的单选按钮 */
+  }
+  
+  .custom-radio label {
+    position: relative;
+    padding-left: 50px;
+    font-size: 14px;
+    color: #404040;
+  }
+  
+  .custom-radio label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border: 2px solid #bdc3c7;
+    border-radius: 50%;
+    background-color: #bcc3c8;
+  }
+  
+  .custom-radio input[type="radio"]:checked + label:before {
+    background-color: #515a63;
+  }
+  
+  /* 这部分是用于选中状态的圆点 */
+  .custom-radio label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .custom-radio input[type="radio"]:checked + label:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  form .custom-button {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  form .custom-button button {
+    background-color: #0071e3;
+    width: 100px;
+    height: 42px;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 980px;
+    border: none;
+  }
+.footer{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+  .detail {
+    position: absolute;
+    bottom :0;
+    width: 100%;
+    background-color: black;
+    height: 400px;
+    padding: 20px;
+}
+.detail .about {
+    color: white;
+    width: 60%;
+    position: relative;
+    width: 100%;
+}
+.detail .about h1{
+   margin: 0;
+   font-size: 24px;
+   margin-top: 20px;
+}
+.detail .about .about-left{
+    position: absolute;
+    left: 20%;
+ }
+ .detail .about .about-right{
+    position: absolute;
+    right: 20%;
+    top:0;
+ }
+ .detail .about .about-right ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+ }
+ .detail .about .about-right ul li{
+    display:inline-block;
+    width: 120px;
+    height: 200px;
+    margin: 10px;
+    text-align: center;
+ }
+ .detail .about .about-right ul li p{
+    font-size: 20px;
+    font-weight: bold;
+ }
+ .detail .about .about-right ul li a{
+    display:block;
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+    text-align: center;
+    color: #666666;
+    text-decoration: none;
+ }
+ .detail .copyright {
+    position: absolute;
+    bottom: 10px;
+    color: #666666;
+    font-size: 12px;
+    margin: 0 auto;
+    left: 35%;
+    transform: translateX(-45%);
+ }

@@ -36,8 +36,11 @@ body {
 }
 
 #home .enter {
-    width: 200px;
-    height: 80px;
+    text-decoration: none;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -53,8 +56,8 @@ body {
 }
 
 #home .enter:hover {
-    border: solid black 1px;
     background-color: rgba(58, 58, 58, 0.5);
+    transform: translate(-50%, 25%) scale(1.2);
 }
 
 .carousel,
@@ -87,7 +90,19 @@ body {
 .carousel .right-btn {
     right: 30px;
 }
-
+.carousel .down-btn {
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%) rotateZ(90deg);
+}
+.carousel .down-text {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    color: #ffffff;
+}
 .silder {
     width: 100%;
     height: 100%;
@@ -102,6 +117,7 @@ body {
     transition: all 1s ease;
     z-index: 99;
 }
+
 
 .content-one,
 .content-two,
@@ -297,3 +313,17 @@ body {
     transform: translateX(-45%);
  }
 
+ /* CSS动画样式 */
+ @keyframes pulse {
+    0%, 100% {
+        transform: translateX(-50%) rotateZ(90deg) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) rotateZ(90deg) scale(1.5);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+    display: inline-block;
+}

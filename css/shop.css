@@ -17,7 +17,8 @@
     
     body {-webkit-font-smoothing:antialiased;       /*css3 抗锯齿，文字更清晰*/
             font-size: 16px;
-            font-family: "微软雅黑";}
+            font-family: "微软雅黑";
+            background-color: rgb(245, 245, 245) ;}
     
     .clearfiz::after {visibility: hidden;   /*清除浮动*/
             clear: both;
@@ -30,12 +31,11 @@
 /* header */
 header {
     width: 100%;
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(245, 245, 245);
-
 }
 
 nav {
@@ -43,15 +43,14 @@ nav {
 }
 
 #logo a img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 nav ul,
 #right {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 nav ul li a, 
@@ -62,6 +61,7 @@ nav ul li a,
     line-height: 50px;
     text-align: center;
     font-size: 14px;
+    position: relative;
 }
 
 #right a {
@@ -71,7 +71,91 @@ nav ul li a,
 #right a {
     font-weight: 900;
 }
+
+input[type="search"] {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: 0;
+    font-size: 12px;
+    line-height: 25px;
+    padding: 0 8px 0 8px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    height: 0;
+    border-radius: 20px;
+    box-shadow: 2px 5px 5px #c9c9c9;
+    padding: 0 3% 0 3%;
+    position: absolute;
+    top: 50px;
+    transform: translateX(-38%);
+    z-index: 999;
+    opacity: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    transition: height 0.8s;
+}
+
+.one:hover .menu,
+.one:hover .menu:hover {
+    opacity: 1;
+    height: 290px;
+}
+
+.one:hover a {
+    font-weight: 900;
+}
+
+
+.menu ul {
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.menu ul:first-child li a {
+    font-size: 25px;
+    font-weight: 900;
+    height: 45px;
+    line-height: 45px;
+    text-align: left;
+}
+
+.menu ul li a {
+    font-size: 16px;
+    height: 45px;
+    font-weight: 600;
+    line-height: 45px;
+    text-align: left;
+}
+
+.menu ul li:first-child a {
+    font-size: 16px;
+    font-weight: 100;
+    color: #3d3d3d;
+}
+
 /* header */
+
+/* 公告 */
+#notice {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #fff;
+    position: relative;
+}
+
+#notice a {
+    color: #06CC;
+}
+/* 公告 */
 
 
 /* 大分类 */
@@ -87,14 +171,13 @@ nav ul li a,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 7%;
+    padding: 1% 5%;
 }
 
 h2 {
-    display: flex;
-    align-items: center;
-    font-size: 48px;
-    height: 200px;
+    font-size: 40px;
+    height: 100px;
+    line-height: 100px;
 }
 
 .doubt span {
@@ -126,20 +209,30 @@ h2 {
 
 .bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
-    padding: 1% 7%;
+    gap: 2%;
+    padding: 1% 5%;
 }
 
 .bottom a {
     display: flex;
     flex-flow: column nowrap;
+    width: 15%;
+    height: 150px;
+    transition: transform 0.5s;
+}
+
+.bottom a:hover {
+    transform: scale(1.02, 1.02);
 }
 
 .bottom a img {
     display: block;
     border-radius: 20px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .bottom a p {
@@ -149,79 +242,189 @@ h2 {
 }
 /* 大分类 */
 
-/* 近期最佳 */
+/* 黑白摄影 */
 #box1 {
     width: 100%;
-    height: 980px;
-    padding: 5% 7% 0 7%;
+    padding: 0 5% 0 5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: wrap;
+    flex-flow: column nowrap;
 }
 
 #box1 .photo {
     width: 100%;
-    height: 95%;
+    height: 540px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 5%;
 }
 
 h3 {
     font-size: 30px;
-    text-align: center;
-    padding-bottom: 25px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
 }
 
-#box1 .photo a span img {
+h4 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+#box1 .photo a {
     display: block;
-    height: 95%;
-    margin: 0 auto;
+    width: 23%;
+    height: 500px;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+#box1 .photo a:hover {
+    transform: scale(1.02, 1.02);
+}
+
+#box1 .photo a img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
     border-radius: 30px;
-    box-shadow: 4px 4px 15px #c9c9c9;
+    box-shadow: 2px 5px 5px #c9c9c9;
 }
 
 #box1 .photo a span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    padding: 0 0 60px 30px;
+}
+
+.font_white {
+    color: #fff;
+}
+
+b {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#box1 .photo2 {
+    height: 400px;
+}
+
+#box1 .photo2 a {
+    width: 30%;
+    height: 400px;
+}
+
+#box1 .photo2 a img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+#box1 .photo3 {
+    justify-content: left;
+    gap: 2%;
+}
+
+#box1 .photo3 div {
+    width: 25%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+#box1 .photo3 div a {
+    width: 100%;
+    height: 180px;
+}
+
+#box1 .photo3 div a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 黑白摄影 */
+
+.footer {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(25px);
     position: relative;
 }
 
-#box1 .photo a span::after {
-    content: "";
-    display: block;
-    width: 90%;
-    height: 0;
+.detail {
+    bottom :0;
+    width: 100%;
+    background-color: black;
+    height: 400px;
+    padding: 20px;
+}
+.detail .about {
+    color: white;
+    width: 60%;
+    position: relative;
+    width: 100%;
+}
+.detail .about h1{
+   margin: 0;
+   font-size: 24px;
+   margin-top: 20px;
+}
+.detail .about .about-left{
     position: absolute;
-    bottom: 0;
-    transform: translateX(5%);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: inset 1px 2px 6px rgba(255, 255, 255, 0.3), 2px 2px 15px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    font-size: 18px;
-    padding: 5%;
-    overflow: hidden;
-    box-sizing:border-box;
-    transition: height 0.5s, opacity 0.5s;
-}
+    left: 20%;
+ }
+ .detail .about .about-right{
+    position: absolute;
+    right: 20%;
+    top:0;
+ }
+ .detail .about .about-right ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+ }
+ .detail .about .about-right ul li{
+    display:inline-block;
+    width: 120px;
+    height: 200px;
+    margin: 10px;
+    text-align: center;
+ }
+ .detail .about .about-right ul li p{
+    font-size: 20px;
+    font-weight: bold;
+ }
+ .detail .about .about-right ul li a{
+    display:block;
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+    text-align: center;
+    color: #666666;
+    text-decoration: none;
+ }
+ .detail .copyright {
+    position: absolute;
+    bottom: 10px;
+    color: #666666;
+    font-size: 12px;
+    margin: 0 auto;
+    left: 35%;
+    transform: translateX(-45%);
+ }
 
-#box1 .photo a .left::after {
-    content: "0000";
-}
-
-#box1 .photo a .right::after {
-    content: "123";
-}
-
-#box1 .photo a .big::after {
-    content: "456";
-}
-
-#box1 .photo a span:hover::after {
-    height: 30%;
-    opacity: 1;
-}
-
-.mg_top {
-    margin-top: 200px;
-}
-/* 近期最佳 */
+ .about-left p,
+ .copyright p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+ }

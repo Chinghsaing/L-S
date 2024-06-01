@@ -86,103 +86,80 @@ nav ul li a,
 #right a {
     font-weight: 900;
 }
-
+#sousuo{
+    width: 100%;
+    background-image: url(../images/DSC02887-编辑.jpg);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 .search {
-    height: 30px;
+    width: 700px;
+    height: 54px;
     border-radius: 20px;
-    border: 1px solid transparent;
+    border: transparent;
     display: flex;
     align-items: center;
     padding: 0 8px 0 8px;
     transition: border 0.5s;
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    justify-content: flex-end
 }
 
 input[type="text"] {
-    width: 0;
-    border: 0;
+    width:700px;
+    border: 54px;
     background-color: transparent;
     outline: 0;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 25px;
-    transition: width 0.5s;
+    
 }
 
 button {
     border: 0;
     font-family: 'icomoon';
-    font-size: 15px;
-    transition: right 0.5s;
+    font-size: 18px;
 }
 
-.search:hover input[type="text"],
-input[type="text"]:focus {
-    width: 200px;
-}
-
-.search:hover {
-    border-color: black;
+.search-detail{
+    position: absolute;
+    width: 700px;
+    height: 200px;
+    opacity: 0;
+    background-color: rgba(255, 255, 255,.9);
+    top: 60%;
+    border-radius: 20px;
+    transition: opacity .5s ease;
 }
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-    height: 0;
-    border-radius: 20px;
-    box-shadow: 2px 5px 5px #c9c9c9;
-    padding: 0 3% 0 3%;
-    position: absolute;
-    top: 50px;
-    transform: translateX(-38%);
-    z-index: 999;
-    opacity: 0;
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
-    transition: height 0.8s;
-}
-
-.one:hover .menu,
-.one:hover .menu:hover {
-    opacity: 1;
-    height: 290px;
-}
-
-.one:hover a {
-    font-weight: 900;
-}
-
-
-.menu ul {
-    height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.menu ul:first-child li a {
-    font-size: 25px;
-    font-weight: 900;
-    height: 45px;
-    line-height: 45px;
-    text-align: left;
-}
-
-.menu ul li a {
-    font-size: 16px;
     width: 100%;
-    height: 45px;
-    font-weight: 600;
-    line-height: 45px;
-    text-align: left;
+    position: absolute;
+    left: 0;
+    background-color: transparent;
+    z-index: 999;
+    opacity: 1;
+    transition: all .5s ease;
+    overflow: hidden;
+    height: 0;
 }
 
-.menu ul li:first-child a {
-    font-size: 16px;
-    font-weight: 100;
-    color: #3d3d3d;
+.menu-content{
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
+    transition: all .2s ease;
 }
-
+.mask{
+    width: 100%;
+    height: 60%;
+    backdrop-filter: blur(2px);
+}
 /* header */
 
 /* 公告 */
@@ -205,23 +182,24 @@ input[type="text"]:focus {
 /* 大分类 */
 #fenlei {
     width: 100%;
-    height: 500px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 #fenlei .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 5%;
+    padding: 1% 5% 0 5%;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 28px;
     height: 100px;
     line-height: 100px;
+    color: #1d1d1f;
 }
 
 .doubt span {
@@ -256,27 +234,28 @@ h2 {
     justify-content: left;
     align-items: center;
     gap: 2%;
-    padding: 1% 5%;
+    padding: 0 5% 1% 5%;
 }
 
 .bottom a {
     display: flex;
     flex-flow: column nowrap;
-    width: 15%;
-    height: 150px;
     transition: transform 0.5s;
 }
 
 .bottom a:hover {
-    transform: scale(1.02, 1.02);
+    transform: scale(1.1, 1.1);
 }
+
+
 
 .bottom a img {
     display: block;
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
+    transition: all 0.5s ease;
 }
 
 .bottom a p {
@@ -320,13 +299,17 @@ h4 {
     width: 23%;
     height: 500px;
     position: relative;
-    transition: transform 0.5s;
+    overflow: hidden;
+    transition: all .5s ease;
+    border-radius: 30px;
 }
 
-#box1 .photo a:hover {
+#box1 .photo a:hover img {
+    transform: scale(1.2, 1.2);
+}
+#box1 .photo a:hover{
     transform: scale(1.02, 1.02);
 }
-
 #box1 .photo a img {
     display: block;
     width: 100%;
@@ -334,6 +317,7 @@ h4 {
     object-fit: cover;
     border-radius: 30px;
     box-shadow: 2px 5px 5px #c9c9c9;
+    transition: all .5s ease;
 }
 
 #box1 .photo a span {
@@ -369,7 +353,7 @@ b {
 
 #box1 .photo3 {
     justify-content: left;
-    gap: 2%;
+    gap: 5%;
 }
 
 #box1 .photo3 div {

@@ -1,50 +1,53 @@
 document.addEventListener('DOMContentLoaded', function () {
     const oneItems = document.querySelectorAll('.one-item');
-const input = document.querySelector('.search');
-const search = document.querySelector('.search-detail');
-    oneItems.forEach(oneItem => {
-        oneItem.addEventListener('mouseover', function () {
-            const menu = this.nextElementSibling;
-            if (menu) {
-                menu.children[0].style.opacity = '1';
-                setTimeout(() => {
-                    menu.style.height = '100%'; // 展开时设置实际高度以触发过渡效果
-                }, 200);
-            }
-        });
-
-        oneItem.addEventListener('mouseout', function (event) {
-            const menu = this.nextElementSibling;
-            if (menu) {
-                // 确保鼠标移到了menu-content上时不会立即关闭
-                const isMouseInMenuContent = menu.querySelector('.menu-content').contains(event.relatedTarget);
-                if (!isMouseInMenuContent) {
-                    menu.children[0].style.opacity = '0';
-                    menu.style.height = '0'; // 隐藏时恢复高度为0
-                }
-            }
-        });
-    });
-
-    window.addEventListener('scroll', function () {
-        const menus = document.querySelectorAll('.menu')
-        menus.forEach(menu => {
-            menu.style.height = '0';
-        }
-        )
-    })
-
-    input.children[0].addEventListener('focus', function () {
-        search.style.opacity = '1';
-    })
-    input.children[0].addEventListener('blur', function () {
-        search.style.opacity = '0';
-    })
+    const input = document.querySelector('.search');
+    const search = document.querySelector('.search-detail');
     const masks = document.querySelectorAll('.mask');
+    const menuContents = document.querySelectorAll('.menu-content');
+
+    function toggleMenu(menu, show = true) {
+        const mask = menu.querySelector('.mask');
+        const content = menu.querySelector('.menu-content');
+        if (show) {
+            menu.style.height = '100%';
+            mask.style.display = 'block';
+            content.style.display = 'block';
+        } else {
+            menu.style.height = '0';
+            mask.style.display = 'none';
+            content.style.display = 'none';
+        }
+    }
+
+    function handleMouseEnterLeave(menu, show) {
+        return function (event) {
+            const isMouseInContent = menu.querySelector('.menu-content').contains(event.relatedTarget);
+            if (isMouseInContent) return;
+            toggleMenu(menu, show);
+        };
+    }
+
+    oneItems.forEach(oneItem => {
+        const menu = oneItem.nextElementSibling;
+
+        oneItem.addEventListener('mouseover', () => toggleMenu(menu, true));
+        oneItem.addEventListener('mouseout', handleMouseEnterLeave(menu, false));
+    });
 
     masks.forEach(mask => {
-        mask.addEventListener('mouseover', function () {
-            mask.parentElement.style.height = '0';// 当鼠标经过mask时，控制台输出1
-        });
+        mask.addEventListener('mouseover', () => toggleMenu(mask.parentElement, false));
     });
-})
+
+    menuContents.forEach(menuContent => {
+        menuContent.addEventListener('mouseover', () => toggleMenu(menuContent.parentElement, true));
+        menuContent.addEventListener('mouseout', () => toggleMenu(menuContent.parentElement, false));
+    });
+
+    input.children[0].addEventListener('focus', () => search.style.opacity = '1');
+    input.children[0].addEventListener('blur', () => search.style.opacity = '0');
+
+    window.addEventListener('scroll', () => {
+        const menus = document.querySelectorAll('.menu');
+        menus.forEach(menu => toggleMenu(menu, false));
+    });
+});

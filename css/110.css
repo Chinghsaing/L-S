@@ -1,0 +1,372 @@
+/* css初始化 */
+* { margin:0;    /*清除内外边距*/
+    padding:0;
+    box-sizing:border-box;	/*padding和border不会撑大盒子，前提是二者大小都不超过width*/}
+    
+    em,i {font-style: normal;}      /*em、i不倾斜*/
+    
+    li {list-style: none;}  /*去除li圆点*/
+    
+    img {border: 0;         
+            vertical-align: middle;}   /*取消图片地侧空白缝隙*/
+    
+    button {cursor: pointer;}  /*经过button按钮鼠标变小手*/
+    
+    a {text-decoration: none;
+        color: black;}      /*取消链接下划线*/
+    
+    body {-webkit-font-smoothing:antialiased;       /*css3 抗锯齿，文字更清晰*/
+            font-size: 16px;
+            font-family: "微软雅黑";
+            background-color: rgb(245, 245, 245) ;}
+    
+    .clearfiz::after {visibility: hidden;   /*清除浮动*/
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0;}
+/* css初始化 */
+
+/* header */
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    background-color: rgb(255, 255, 255);
+}
+
+nav {
+    width: 20%;
+}
+
+#logo a img {
+    width: 35px;
+    height: 35px;
+}
+
+nav ul,
+#right {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a, 
+#right a {
+    display: block;
+    width: 2em;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+}
+
+#right a {
+    width: 3em;
+}
+
+#right a {
+    font-weight: 900;
+}
+
+.search {
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 8px 0 8px;
+    transition: border 0.5s;
+}
+
+input[type="text"] {
+    width: 0;
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 25px;
+    transition: width 0.5s;
+}
+
+button {
+    border: 0;
+    font-family: 'icomoon';
+    font-size: 15px;
+    transition: right 0.5s;
+}
+
+.search:hover input[type="text"],
+input[type="text"]:focus {
+    width: 200px;
+}
+
+.search:hover {
+    border-color: black;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    height: 0;
+    border-radius: 20px;
+    box-shadow: 2px 5px 5px #c9c9c9;
+    padding: 0 3% 0 3%;
+    position: absolute;
+    top: 50px;
+    transform: translateX(-38%);
+    z-index: 999;
+    opacity: 0;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    transition: height 0.8s;
+}
+
+.one:hover .menu,
+.one:hover .menu:hover {
+    opacity: 1;
+    height: 290px;
+}
+
+.one:hover a {
+    font-weight: 900;
+}
+
+
+.menu ul {
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.menu ul:first-child li a {
+    font-size: 25px;
+    font-weight: 900;
+    height: 45px;
+    line-height: 45px;
+    text-align: left;
+}
+
+.menu ul li a {
+    font-size: 16px;
+    width: 100%;
+    height: 45px;
+    font-weight: 600;
+    line-height: 45px;
+    text-align: left;
+}
+
+.menu ul li:first-child a {
+    font-size: 16px;
+    font-weight: 100;
+    color: #3d3d3d;
+}
+
+/* header */
+
+/* section */
+section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin: 0 auto 100px auto;
+}
+
+.keyword {
+    width: 100%;
+    display: flex;
+    gap: 1%;
+    margin: 80px 0 20px 0;
+}
+
+.keyword a {
+    display: block;
+    width: 8%;
+    height: 37px;
+    line-height: 37px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 5px #c9c9c9;
+    transform: scale(1, 1);
+    transition: transform 0.5s;
+}
+
+.keyword a:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.keyword span {
+    height: 37px;
+    line-height: 37px;
+    color: #0075ff;
+}
+
+p {
+    padding: 15px 0;
+}
+
+b {
+    font-size: 0px;
+    transition: font-size 0.5s;
+}
+
+.content {
+    width: 100%;
+    columns: 4;
+    column-gap: 20px;
+}
+
+.content .photo {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    transform: scale(1, 1);
+    transition: transform 0.5s;
+}
+
+.content .photo img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.photo span {
+    width: 0%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    bottom: 7%;
+    left: 7%;
+    font-size: 0px;
+    padding: auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    transition: width 0.5s, font-size 0.5s;
+}
+
+.photo:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.photo:hover span, 
+.photo:hover span b{
+    width: 42%;
+    font-size: 18px;
+}
+
+@media (max-width: 1200px)
+{
+    .content {
+        columns: 3;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .content {
+        columns: 2;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .content {
+        columns: 1;
+    }
+}
+
+.page
+/* section */
+
+
+/* 页尾 */
+.footer {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(25px);
+    position: relative;
+}
+
+.detail {
+    bottom :0;
+    width: 100%;
+    background-color: black;
+    height: 400px;
+    padding: 20px;
+}
+.detail .about {
+    color: white;
+    width: 60%;
+    position: relative;
+    width: 100%;
+}
+.detail .about h1{
+   margin: 0;
+   font-size: 24px;
+   margin-top: 20px;
+}
+.detail .about .about-left{
+    position: absolute;
+    left: 20%;
+ }
+ .detail .about .about-right{
+    position: absolute;
+    right: 20%;
+    top:0;
+ }
+ .detail .about .about-right ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+ }
+ .detail .about .about-right ul li{
+    display:inline-block;
+    width: 120px;
+    height: 200px;
+    margin: 10px;
+    text-align: center;
+ }
+ .detail .about .about-right ul li p{
+    font-size: 20px;
+    font-weight: bold;
+ }
+ .detail .about .about-right ul li a{
+    display:block;
+    width: 100px;
+    height: 20px;
+    margin: 10px;
+    text-align: center;
+    color: #666666;
+    text-decoration: none;
+ }
+ .detail .copyright {
+    position: absolute;
+    bottom: 10px;
+    color: #666666;
+    font-size: 12px;
+    margin: 0 auto;
+    left: 35%;
+    transform: translateX(-45%);
+ }
+
+ .about-left p,
+ .copyright p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+ }
+ /* 页尾 */

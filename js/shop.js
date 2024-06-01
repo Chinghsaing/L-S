@@ -1,14 +1,15 @@
-const oneItems = document.querySelectorAll('.one-item');
+document.addEventListener('DOMContentLoaded', function () {
+    const oneItems = document.querySelectorAll('.one-item');
 const input = document.querySelector('.search');
 const search = document.querySelector('.search-detail');
-document.addEventListener('DOMContentLoaded', function () {
     oneItems.forEach(oneItem => {
         oneItem.addEventListener('mouseover', function () {
             const menu = this.nextElementSibling;
-            console.log(menu.children[0]);
             if (menu) {
                 menu.children[0].style.opacity = '1';
-                menu.style.height = '100%'; // 展开时设置实际高度以触发过渡效果
+                setTimeout(() => {
+                    menu.style.height = '100%'; // 展开时设置实际高度以触发过渡效果
+                }, 200);
             }
         });
 
@@ -26,18 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.addEventListener('scroll', function () {
-        document.querySelector('.menu').style.height = '0';
-    })
-    window.addEventListener('mouseover', function (event) {
-        if (event.target == document.querySelector('.mask')) {
-            document.querySelector('.menu').style.height = '0';
+        const menus = document.querySelectorAll('.menu')
+        menus.forEach(menu => {
+            menu.style.height = '0';
         }
-    }) 
-    
+        )
+    })
+
     input.children[0].addEventListener('focus', function () {
         search.style.opacity = '1';
     })
     input.children[0].addEventListener('blur', function () {
         search.style.opacity = '0';
     })
+    const masks = document.querySelectorAll('.mask');
+
+    masks.forEach(mask => {
+        mask.addEventListener('mouseover', function () {
+            mask.parentElement.style.height = '0';// 当鼠标经过mask时，控制台输出1
+        });
+    });
 })

@@ -173,7 +173,14 @@ input[type="password"]:focus + span {
     height: 35px;
     border: 0;
     border-radius: 48%;
-    background-color: #000000;
+    font-family: 'icomoon';
+    font-size: 25px;
+    transform: scale(1, 1);
+    transition: transform 0.2s;
+}
+
+.third-party div button:hover {
+    transform: scale(1.2, 1.2);
 }
 
 .now {

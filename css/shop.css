@@ -213,16 +213,22 @@ h2 {
 
 }
 
-.doubt span a:first-child::before {
-    content: "";
+.doubt span a:nth-child(1)::before {
+    content: "";
     display: block;
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: blueviolet;
     position: absolute;
-    left: -3em;
+    left: -2em;
     top: 15%;
+    font-size: 25px;
+    font-family: 'icomoon';
+    text-align: center;
+}
+
+.doubt span:nth-child(2) a:nth-child(1)::before {
+    content: "";
 }
 
 .doubt span a:last-child {

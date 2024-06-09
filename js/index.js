@@ -118,7 +118,7 @@ window.addEventListener('wheel', function () {
         if (!timer) {
             timer = setInterval(function () {
                 btnEvent(1);
-            }, 5000);
+            }, 3000);
         }
     } else {
         if (timer) {
@@ -133,5 +133,5 @@ window.addEventListener('wheel', handleScroll, { passive: false });
 document.addEventListener('DOMContentLoaded', function () {
     timer = setInterval(function () {
         btnEvent(1);
-    }, 5000);
+    }, 3000);
 });

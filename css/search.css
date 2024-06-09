@@ -83,7 +83,7 @@ nav ul li a:hover{
 }
 #sousuo{
     width: 100%;
-    background-image: url(../images/DSC02887-编辑.jpg);
+    background-image: url(../images/DSC04594.jpg);
     height: 300px;
     display: flex;
     justify-content: center;
@@ -204,15 +204,6 @@ button {
 /* 公告 */
 
 
-#sousuo{
-    width: 100%;
-    background-image: url(../images/DSC02887-编辑.jpg);
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
 .search {
     width: 700px;
     height: 54px;

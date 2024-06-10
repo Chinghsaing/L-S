@@ -20,7 +20,8 @@
             font-family: "微软雅黑";
             background-color: #f0f0f0;}
     
-    .clearfiz::after {visibility: hidden;   /*清除浮动*/
+    .clearfiz::after {
+            visibility: hidden;   /*清除浮动*/
             clear: both;
             display: block;
             content: ".";
@@ -44,7 +45,7 @@
 /* header */
 header {
     width: 100%;
-    height: 80px;
+    height: 50px;
     display: flex;
     align-items: center;
     gap: 2%;
@@ -53,13 +54,13 @@ header {
 }
 
 #logo a img {
-    width: 65px;
-    height: 65px;
+    width: 35px;
+    height: 35px;
 }
 
 .left a {
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .right {
@@ -74,27 +75,53 @@ header {
 /* header */
 
 /* 登录 */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-}
 
-#login {
-    width: 25%;
+.login {
+    width: 30%;
     height: 550px;
     border-radius: 20px;
-    margin: 5%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 4px 4px 10px #5e5e5e;
+    position: relative;
+    opacity: 1;
+    right: 0%;
+    margin: 60px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h2 {
-    font-size: 40px;
-    height: 100px;
-    line-height: 100px;
+.login form {
+    width: 100%;
+}
+
+.box {
+    width: 100%;
+    position: relative;
+}
+ 
+.transition {
+    position: relative;
+    display: block;
+    height: 40px;
+}
+.transition span {
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 1s, opacity 0.8s;
+}
+.hidden {
+    transform: translateX(40%);
+    opacity: 0;
+}
+.visible {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 input {
@@ -118,7 +145,7 @@ input {
 
 .email span,
 .pw span {
-    width: 40px;
+    width: 12%;
     text-align: center;
     position: absolute;
     top: 5px;
@@ -126,10 +153,18 @@ input {
     color: #727272;
     background-color: #f0f0f0;
     transition: top 0.2s;
+    display: inline-block;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.transition .w {
+    width: 25%;
 }
 
 .checkbox {
     margin-bottom: 35px;
+    transition: opacity 0.8s;
 }
 
 .checkbox span {
@@ -144,6 +179,22 @@ input[type="password"]:focus + span {
     color: #0075ff;
     top: -13px;
     font-size: 14px;
+}
+
+.checkpw {
+    position: absolute;
+    top: 160px;
+    left: 20%;
+    transition: top 1s, opacity 0.8s;
+}
+
+.hidden1 {
+    top: 100px;
+    opacity: 0;
+}
+
+.visible1 {
+    opacity: 1;
 }
 
 .anniu button {
@@ -168,6 +219,10 @@ input[type="password"]:focus + span {
     margin-bottom: 35px;
 }
 
+.third-party span p {
+    display: inline;
+}
+
 .third-party div button {
     width: 35px;
     height: 35px;
@@ -183,15 +238,25 @@ input[type="password"]:focus + span {
     transform: scale(1.2, 1.2);
 }
 
-.now {
-    width: 60%;
-    text-align: left;
-    margin: 0 auto;
-}
-
-.now a {
+.third-party a {
     color: #0075ff;
 }
+
+.now {
+    width: 10%;
+    text-align: left;
+    position: absolute;
+    top: 65%;
+    left: 41.9%;
+    z-index: 999;
+}
+
+.now b {
+    color: #0075ff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 /* 登录 */
 
 
